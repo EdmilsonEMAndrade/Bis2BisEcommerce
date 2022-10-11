@@ -2,17 +2,18 @@ import axios from 'axios';
 import HttpMessage from '../enum/HttpMessage.enum';
 import HttpStatus from '../enum/HttpStatus.enum';
 import IUniversity from '../interface/university.interface';
+import universityRepositoryMongo from '../repository/university.repository.mongo';
 
 class UniversityService{
 
-    async inicializeDataBase(){
+    async insertData(){
         try{
             const countries = [
                 "argentina", "brasil", "chile", "colombia", "paraguai", "peru", "suriname", "uruguay"
             ]
             await countries.forEach(async (country) => {
-                const { data, status } = await axios.get<IUniversity[]>(`http://universities.hipolabs.com/search?country=${country}`);
-                console.log(data);
+                const { data } = await axios.get<IUniversity[]>(`http://universities.hipolabs.com/search?country=${country}`);
+                await universityRepositoryMongo.createUniversities(data);
             });
             return {
                 status: HttpStatus.CREATED,

@@ -4,9 +4,9 @@ import HttpStatus from '../enum/HttpStatus.enum';
 import universityService from '../service/university.service';
 
 class UniversityController {
-  async inicializeUniversity(res : Response) { 
+  async initializeUniversities(res : Response) { 
     try {
-      const result = await universityService.inicializeDataBase(); 
+      const result = await universityService.insertData(); 
       return res.status(result.status).json({message : result.message});
     } catch (error : any) {
       return res
