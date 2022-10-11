@@ -1,13 +1,13 @@
 import express from 'express'
-
-import { Router, Request, Response } from 'express';
+import cors from 'cors';
+import routes from './routes';
+require('dotenv').config();
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
-const route = Router();
-
 app.use(express.json());
+app.use(cors());
+app.use(routes);
 
-app.use(route);
-
-app.listen(3333, () => 'server running on port 3333');
+app.listen(PORT, () => console.log(`server running on port ${PORT}`));
