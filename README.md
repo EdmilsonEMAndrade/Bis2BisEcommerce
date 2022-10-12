@@ -6,7 +6,7 @@
 Exercício proposto pela IBM baseado em um dos testes aplicados pelo Sicredi envolvendo uma aplicação backend em Springboot.
 
 ##
-<div align='center'>
+
 
 ## Métodos Http
 <img src="./asset/metodosHttp.png" alt="Métodos Http"/>
