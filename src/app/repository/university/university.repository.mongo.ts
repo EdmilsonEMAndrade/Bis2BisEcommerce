@@ -114,4 +114,4 @@ class UniversityRepositoryMongo implements UniversityRepository{
 
 }
 
-export default new UniversityRepositoryMongo();
+export default UniversityRepositoryMongo;

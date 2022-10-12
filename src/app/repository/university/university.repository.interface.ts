@@ -1,4 +1,4 @@
-import { createdUniversity, IUniversity } from "../../interface/university.interface";
+import { createdUniversity, IUniversity, reformUniversityData } from "../../interface/university.interface";
 
 
 interface UniversityRepository{
@@ -6,6 +6,8 @@ interface UniversityRepository{
     createUniversity(university : createdUniversity) : any;
     findUniversities(country:any, page:number): any;
     findUniversityById(id: string) : any;
+    findByIdAndUpdate(id: string, university : reformUniversityData):any;
+    findByIdAndDelete(id: string):any;
 }
 
 export default UniversityRepository;

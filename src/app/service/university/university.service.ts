@@ -2,9 +2,12 @@ import axios from 'axios';
 import HttpMessage from '../../enum/HttpMessage.enum';
 import HttpStatus from '../../enum/HttpStatus.enum';
 import { createdUniversity, findAllUniversity, reformUniversityData } from '../../interface/university.interface';
-import universityRepositoryMongo from '../../repository/university/university.repository.mongo';
+import UniversityRepository from '../../repository/university/university.repository.interface';
+import UniversityRepositoryMongo from '../../repository/university/university.repository.mongo';
 
 class UniversityService{
+    
+    constructor(private repository : UniversityRepository){}
 
     async insertData(){
         try{
@@ -13,7 +16,7 @@ class UniversityService{
             ]
             await countries.forEach(async (country) => {
                 const { data } = await axios.get<createdUniversity[]>(`http://universities.hipolabs.com/search?country=${country}`);
-                await universityRepositoryMongo.createUniversities(data);
+                await this.repository.createUniversities(data);
             });
             return {
                 status: HttpStatus.CREATED,
@@ -28,13 +31,13 @@ class UniversityService{
     }
 
     async createUniversity(university:createdUniversity){
-        return await universityRepositoryMongo.createUniversity(university);
+        return await this.repository.createUniversity(university);
     }
 
     async findUniversities(country:any, page: number){
-        const universities =  await universityRepositoryMongo.findUniversities(country, page);
+        const universities =  await this.repository.findUniversities(country, page);
         const result: findAllUniversity[] = [];
-        universities.forEach(university => {
+        universities.forEach((university: { [x: string]: any; _id: any; country: any; name: any; }) => {
             result.push({
                 _id: university._id,
                 country: university.country,
@@ -46,18 +49,18 @@ class UniversityService{
     }
 
     async findById(id:string){
-        return await universityRepositoryMongo.findUniversityById(id);
+        return await this.repository.findUniversityById(id);
     }
 
     async updateRegister(id: string , university: reformUniversityData){
-        return await universityRepositoryMongo.findByIdAndUpdate(id, university);
+        return await this.repository.findByIdAndUpdate(id, university);
     }
 
     async deleteRegister(id: string){
-        return await universityRepositoryMongo.findByIdAndDelete(id);
+        return await this.repository.findByIdAndDelete(id);
     }
 }
 
-export default new UniversityService();
+export default new UniversityService(new UniversityRepositoryMongo());
 
 
