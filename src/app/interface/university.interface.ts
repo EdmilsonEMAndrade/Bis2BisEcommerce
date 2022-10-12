@@ -10,3 +10,8 @@ export interface IUniversity {
 
 export type createdUniversity = Omit<IUniversity, "_id">;
 export type findAllUniversity = Omit<IUniversity, "web_pages" | "alpha_two_cod" | "web_pages" | "domains">;
+export interface reformUniversityData {
+    web_pages: string[];
+    name: string;
+    domains: string[]
+}

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import HttpMessage from '../../enum/HttpMessage.enum';
 import HttpStatus from '../../enum/HttpStatus.enum';
-import { createdUniversity, findAllUniversity } from '../../interface/university.interface';
+import { createdUniversity, findAllUniversity, reformUniversityData } from '../../interface/university.interface';
 import universityRepositoryMongo from '../../repository/university/university.repository.mongo';
 
 class UniversityService{
@@ -49,6 +49,13 @@ class UniversityService{
         return await universityRepositoryMongo.findUniversityById(id);
     }
 
+    async updateRegister(id: string , university: reformUniversityData){
+        return await universityRepositoryMongo.findByIdAndUpdate(id, university);
+    }
+
+    async deleteRegister(id: string){
+        return await universityRepositoryMongo.findByIdAndDelete(id);
+    }
 }
 
 export default new UniversityService();

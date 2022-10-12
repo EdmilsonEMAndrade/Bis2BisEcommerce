@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import * as yup from 'yup';
 import HttpMessage from '../../enum/HttpMessage.enum';
 import HttpStatus from '../../enum/HttpStatus.enum';
+import { reformUniversityData } from '../../interface/university.interface';
 import universityService from '../../service/university/university.service';
 
 class UniversityController {
@@ -59,6 +60,42 @@ class UniversityController {
     }
   }
 
+  async update(req: Request, res : Response) { 
+    try{
+      await updateUniversityBody.validate(req.body);
+      const university : reformUniversityData = {
+        web_pages: req.body.web_pages,
+        name: req.body.name,
+        domains: req.body.domains
+      }
+      const id = req.params.id;
+      const result = await universityService.updateRegister(id, university);
+      return res.status(result.status).json({message : result.message});
+    }catch(error:any){
+      if (error instanceof yup.ValidationError) {
+        return res.status(HttpStatus.BAD_REQUEST).json({
+            message: HttpMessage.BAD_REQUEST,
+            detalhes: error.errors
+        });
+      }
+      return res
+        .status(error?.status || HttpStatus.BAD_REQUEST)
+        .json({ error_message: error?.message || HttpMessage.BAD_REQUEST});
+    }
+  }
+
+  async deleteByID(req: Request, res : Response) { 
+    try {
+      const id = req.params.id;
+      const result = await universityService.deleteRegister(id); 
+      return res.status(result.status).json({message : result.message});
+    } catch (error : any) {
+      return res
+        .status(error?.status || HttpStatus.BAD_REQUEST)
+        .json({ error_message: error?.message || HttpMessage.BAD_REQUEST});
+    }
+  }
+
 }
 
 const createdUniversityBody = yup.object({
@@ -66,6 +103,12 @@ const createdUniversityBody = yup.object({
   alpha_two_cod: yup.string().max(2).min(2).required("Need to inform the alpha_two_cod with 2 digits"),
   web_pages: yup.array(yup.string()).required("Need to inform web_pages"),
   country: yup.string().required("Required to inform the country"),
+  name: yup.string().required("Required to inform the name"),
+  domains: yup.array(yup.string()).required("Need to inform domains")
+}).required("Required body request");
+
+const updateUniversityBody = yup.object().shape({
+  web_pages: yup.array(yup.string()).required("Need to inform web_pages"),
   name: yup.string().required("Required to inform the name"),
   domains: yup.array(yup.string()).required("Need to inform domains")
 }).required("Required body request");
