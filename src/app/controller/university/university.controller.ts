@@ -15,6 +15,18 @@ class UniversityController {
     }
   }
 
+  async findById(req: Request, res : Response) { 
+    try {
+      const id = req.params.id;
+      const result = await universityService.findById(id); 
+      return res.status(HttpStatus.OK).json(result);
+    } catch (error : any) {
+      return res
+        .status(error?.status || HttpStatus.BAD_REQUEST)
+        .json({ error_message: error?.message || HttpMessage.BAD_REQUEST});
+    }
+  }
+
 }
   
 export default new UniversityController();

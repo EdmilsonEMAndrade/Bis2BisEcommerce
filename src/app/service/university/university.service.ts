@@ -27,6 +27,12 @@ class UniversityService{
         }       
     }
 
+    async findById(id:string){
+        const university = await universityRepositoryMongo.findUniversityById(id);
+        console.log(university);
+        return university
+    }
+
 }
 
 export default new UniversityService();
