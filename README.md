@@ -6,7 +6,7 @@
 Exercício proposto pela IBM baseado em um dos testes aplicados pelo Sicredi envolvendo uma aplicação backend em Springboot.
 
 ##
-<div align='center'>
+
 
 ## Métodos Http
 <img src="./asset/metodosHttp.png" alt="Métodos Http"/>
@@ -39,6 +39,7 @@ Preencher o arquivo .env:
 No terminal executar os seguintes comandos:
 - yarn install
 - yarn dev
+- Execute a rota /created para popular o Banco de Dados
 
 ## Testes
 Confira a collection do Postman:
