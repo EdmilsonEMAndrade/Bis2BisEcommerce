@@ -27,6 +27,10 @@ class UniversityService{
         }       
     }
 
+    async createUniversity(university:createdUniversity){
+        return await universityRepositoryMongo.createUniversity(university);
+    }
+
     async findUniversities(country:any, page: number){
         const universities =  await universityRepositoryMongo.findUniversities(country, page);
         const result: findAllUniversity[] = [];

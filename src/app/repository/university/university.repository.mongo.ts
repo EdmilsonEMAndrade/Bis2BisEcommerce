@@ -7,7 +7,6 @@ import { findOneAndUpdate } from "../mongo/mongo.repository";
 import UniversityRepository from "./university.repository.interface";
 
 class UniversityRepositoryMongo implements UniversityRepository{
-    
 
     async createUniversities(universities: createdUniversity[]) {
         
@@ -19,7 +18,7 @@ class UniversityRepositoryMongo implements UniversityRepository{
                     country: university.country,
                     domains: university.domains
                 },
-                university
+                    university
                 )
             });
                 
@@ -27,6 +26,29 @@ class UniversityRepositoryMongo implements UniversityRepository{
             throw {status: error?.status || HttpStatus.INTERNAL_SERVER_ERROR, message : error.message || HttpMessage.INTERNAL_SERVER_ERROR};
         }
 
+    }
+
+    async createUniversity(university: createdUniversity) {
+        try{
+            const registered = await University.findOne({
+                name: university.name, 
+                country: university.country,
+                "state-province": university["state-province"]
+            }).exec()
+
+            if(registered != null) throw {status: HttpStatus.BAD_REQUEST, message: "University already registered"};
+
+            await University.create(university);
+            
+            return{
+                status: HttpStatus.CREATED,
+                message: HttpMessage.CREATED
+            }
+                
+        }catch(error : any){
+            throw {status: error?.status || HttpStatus.INTERNAL_SERVER_ERROR, message : error.message || HttpMessage.INTERNAL_SERVER_ERROR};
+        }
+        
     }
 
     async findUniversities(country:any, page:number){
