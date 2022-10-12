@@ -1,4 +1,5 @@
-export default interface IUniversity {
+export interface IUniversity {
+    _id:string;
     "state-province"?: string;
     alpha_two_cod: string;
     web_pages: string[];
@@ -6,3 +7,5 @@ export default interface IUniversity {
     name: string;
     domains: string[]
 }
+
+export type createdUniversity = Omit<IUniversity, "_id">;

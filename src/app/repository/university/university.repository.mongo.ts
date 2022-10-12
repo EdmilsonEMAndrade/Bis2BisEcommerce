@@ -1,10 +1,11 @@
-import IUniversity from '../interface/university.interface';
-import { findOneAndUpdate } from './mongo/mongo.repository';
+
+import { createdUniversity } from "../../interface/university.interface";
+import { findOneAndUpdate } from "../mongo/mongo.repository";
 import UniversityRepository from "./university.repository.interface";
 
 class UniversityRepositoryMongo implements UniversityRepository{
 
-    async createUniversities(universities: IUniversity[]) {
+    async createUniversities(universities: createdUniversity[]) {
 
         universities.forEach(async (university) => {
             await findOneAndUpdate('university',

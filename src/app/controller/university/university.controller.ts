@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import HttpMessage from '../enum/HttpMessage.enum';
-import HttpStatus from '../enum/HttpStatus.enum';
-import universityService from '../service/university.service';
+import HttpMessage from '../../enum/HttpMessage.enum';
+import HttpStatus from '../../enum/HttpStatus.enum';
+import universityService from '../../service/university/university.service';
 
 class UniversityController {
   async initializeUniversities(res : Response) { 
@@ -17,4 +17,4 @@ class UniversityController {
 
 }
   
-  export default new UniversityController();
+export default new UniversityController();
