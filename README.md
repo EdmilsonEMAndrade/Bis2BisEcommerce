@@ -39,6 +39,7 @@ Preencher o arquivo .env:
 No terminal executar os seguintes comandos:
 - yarn install
 - yarn dev
+- Execute a rota /created para popular o Banco de Dados
 
 ## Testes
 Confira a collection do Postman:
