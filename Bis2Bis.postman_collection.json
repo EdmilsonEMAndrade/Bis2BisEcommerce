@@ -1,0 +1,1225 @@
+{
+	"info": {
+		"_postman_id": "ae85a974-f8f4-4456-a918-f2ed21b35f96",
+		"name": "Bis2Bis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17033564"
+	},
+	"item": [
+		{
+			"name": "Initialize Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3333/created",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"created"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/created",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"created"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-FXWlH0PvnD0L5vH8jwewd9mu5yg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 15:09:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Created\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create a new University",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"domains\":[\"www.uniteste.com\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/universities",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"universities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "No Body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3f-gnPRTJvqjgRu/teBgCPoLWd1N/o\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 15:12:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Bad Request\",\n    \"detalhes\": [\n        \"Need to inform domains\"\n    ]\n}"
+				},
+				{
+					"name": "Error Type Domain",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"domains\":\"www.uniteste.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/universities",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "238"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ee-a0x8RYwDjRCW1kWHcaQ9Wbe5/xc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 15:15:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Bad Request\",\n    \"detalhes\": [\n        \"domains must be a `array` type, but the final value was: `null` (cast from the value `\\\"www.uniteste.com\\\"`).\\n If \\\"null\\\" is intended as an empty value be sure to mark the schema as `.nullable()`\"\n    ]\n}"
+				},
+				{
+					"name": "Need Name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"domains\":[\"www.uniteste.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/universities",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-qlX2cqYD2GlH4Je3PRRC2dgXRJs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 15:17:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Bad Request\",\n    \"detalhes\": [\n        \"Required to inform the name\"\n    ]\n}"
+				},
+				{
+					"name": "Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Uniteste\",\n    \"country\": \"Peru\",\n    \"web_pages\":[\"www.uniteste.com\"],\n    \"alpha_two_cod\":\"PE\",\n    \"domains\":[\"uniteste.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/universities",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-FXWlH0PvnD0L5vH8jwewd9mu5yg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 15:20:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Created\"\n}"
+				},
+				{
+					"name": "University already registered",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Uniteste\",\n    \"country\": \"Peru\",\n    \"web_pages\":[\"www.uniteste.com\"],\n    \"alpha_two_cod\":\"PE\",\n    \"domains\":[\"uniteste.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/universities",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31-lo58mj7OLQ5B2bgxlltHrip1560\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 15:34:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error_message\": \"University already registered\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"UniPeru\",\n    \"web_pages\":[\"www.uniteste.com\"],\n    \"domains\":[\"uniteste.com\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/universities/6346db29d65689687c2a5184",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"universities",
+						"6346db29d65689687c2a5184"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "No Body",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities/6346db29d65689687c2a5184",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346db29d65689687c2a5184"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3f-gnPRTJvqjgRu/teBgCPoLWd1N/o\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:02:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Bad Request\",\n    \"detalhes\": [\n        \"Need to inform domains\"\n    ]\n}"
+				},
+				{
+					"name": "Error Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"country\": \"Peru\",\n    \"web_pages\":[\"www.uniteste.com\"],\n    \"alpha_two_cod\":\"PE\",\n    \"domains\":[\"uniteste.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/universities/6346db29d65689687c2a5184",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346db29d65689687c2a5184"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-qlX2cqYD2GlH4Je3PRRC2dgXRJs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:19:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Bad Request\",\n    \"detalhes\": [\n        \"Required to inform the name\"\n    ]\n}"
+				},
+				{
+					"name": "Not found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"UniPeru\",\n    \"web_pages\":[\"www.uniteste.com\"],\n    \"domains\":[\"uniteste.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/universities/6346db29d65689687c2a6999",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346db29d65689687c2a6999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-cfpTjBYblZ7C2bX5/YqhP0b+diI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:21:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error_message\": \"Not Found\"\n}"
+				},
+				{
+					"name": "Update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"UniPeru\",\n    \"web_pages\":[\"www.uniteste.com\"],\n    \"domains\":[\"uniteste.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/universities/6346db29d65689687c2a5184",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346db29d65689687c2a5184"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10-MxB4y4MLcx6QDsp8b8vgp7iFMFo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:22:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Delete Not Found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities/6346b467d65689687c2a3327",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346b467d65689687c2a3327"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-cfpTjBYblZ7C2bX5/YqhP0b+diI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:32:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error_message\": \"Not Found\"\n}"
+				},
+				{
+					"name": "Deleted",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities/6346b467d65689687c2a330d",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346b467d65689687c2a330d"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10-MxB4y4MLcx6QDsp8b8vgp7iFMFo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:34:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Find By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3333/created",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"created"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find By ID Sucess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities/6346b467d65689687c2a330a",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346b467d65689687c2a330a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c5-kRE19TAtzkoygs9gAdZvEhzscGg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:36:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6346b467d65689687c2a330a\",\n    \"country\": \"Peru\",\n    \"domains\": [\n        \"uss.edu.pe\"\n    ],\n    \"name\": \"Universidad Señor de Sipán\",\n    \"alpha_two_code\": \"PE\",\n    \"state-province\": null,\n    \"web_pages\": [\n        \"http://www.uss.edu.pe/\"\n    ]\n}"
+				},
+				{
+					"name": "Find By ID Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities/6346b467d65689687c2a330d",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								"6346b467d65689687c2a330d"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-cfpTjBYblZ7C2bX5/YqhP0b+diI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:38:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error_message\": \"Not Found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Find All",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Find All First 20",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities/",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2380"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"94c-F//g2ciTZdORdWX5mJOH/eGaMMY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:38:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6346b467d65689687c2a3277\",\n        \"country\": \"Uruguay\",\n        \"name\": \"Insituto Universitario - Centro Latinoamericano de Economia Humana - IU Claeh\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3279\",\n        \"country\": \"Uruguay\",\n        \"name\": \"Universidad de la Empresa (UDE)\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a327d\",\n        \"country\": \"Uruguay\",\n        \"name\": \"Universidad de Montevideo\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3281\",\n        \"country\": \"Uruguay\",\n        \"name\": \"Universidad de la República\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3283\",\n        \"country\": \"Uruguay\",\n        \"name\": \"Universidad ORT Uruguay\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3285\",\n        \"country\": \"Uruguay\",\n        \"name\": \"Universidad Católica del Uruguay\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3288\",\n        \"country\": \"Peru\",\n        \"name\": \"Pontificia Universidad Católica del Perú\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3289\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad San Ignacio de Loyola\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a328b\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Andina Nestor Caceares Velasquez\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a328d\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Andina del Cusco\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3291\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad de Ciencias y Humanidades\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3292\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Católica de Santa María\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3293\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Alas Peruanas\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3297\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Cientifica del Sur\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a329a\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad César Vallejo\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a329d\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Particular de Chiclayo\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a329f\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Marcelino Champagnat\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a32a1\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad de Huánuco\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a32a3\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad de Lambayeque\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a32a5\",\n        \"country\": \"Peru\",\n        \"name\": \"Universidad Particular Inca Garcilaso de la Vega\",\n        \"state-province\": null\n    }\n]"
+				},
+				{
+					"name": "Find All Page 5",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities?page=5",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2319"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"90f-5SA+iVUxPYh/fpRPXvyIov23ElI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:39:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6346b467d65689687c2a3357\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Gabriela Mistral\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3359\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad International SEK, Santiago\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a335b\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad José Santos Ossa\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a335d\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad de Los Lagos\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3360\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad La Republica\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3366\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad de Magallanes\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3365\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Maritima de Chile\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3367\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Metropolitana de Ciencias de la Educación\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3368\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Mayor\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a336c\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Nacional Andrés Bello\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a336d\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Adventista de Chile\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3370\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Mariano Egaña\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3371\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad \\\"Arturo Prat\\\"\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3373\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Francisco de Aguirre\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3376\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad de Artes, Ciencias y Comunicación\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3377\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Iberoamericana de Ciencias y Tecnologia\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3379\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Arcis\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a337b\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad del Pacífico\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a337d\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad Austral de Chile\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a337f\",\n        \"country\": \"Chile\",\n        \"name\": \"Universidad de Santiago de Chile\",\n        \"state-province\": null\n    }\n]"
+				},
+				{
+					"name": "Find All Country Filter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities?country=Argentina",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Argentina"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2920"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b68-vfLPx1OyKl+JvEGV/xWvE08a9Eo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:40:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6346b467d65689687c2a339a\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto Universitario CEMA\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a339b\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Atlantida Argentina\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33a0\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad CAECE, Buenos Aires\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33a1\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto de Enseñanza Superior del Ejército\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33a3\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto Tecnológico de Buenos Aires\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33a4\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Austral Buenos Aires\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33a7\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto Universitario de Estudios Navales y Marítimos\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33a8\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto Universitario de Ciencias de la Salud - Buenos Aires\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33a9\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto Universitario Aeronáutico\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33ac\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto Universitario Nacional del Arte\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33ad\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Argentina \\\"John F. Kennedy\\\"\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33af\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Maimónides\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33b1\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Mar del Plata\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33b4\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad de Palermo\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33b7\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Argentina de la Empresa\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33b9\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad del Salvador\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33bb\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Autónoma de Entre Ríos\",\n        \"state-province\": \"Entre Ríos\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33be\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Adventista del Plata\",\n        \"state-province\": \"Entre Ríos\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33c0\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad de Buenos Aires\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33c1\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad de Belgrano\",\n        \"state-province\": \"Ciudad Autónoma de Buenos Aires\"\n    }\n]"
+				},
+				{
+					"name": "Find All Country Filter and Page",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/universities?country=Argentina&page=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"universities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Argentina"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2580"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a14-RwiCuvJoyvThkCdLT6yikQl2bpI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Oct 2022 16:40:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6346b467d65689687c2a33ef\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad \\\"Juan Agustín Maza\\\"\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33f2\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad de Mendoza\",\n        \"state-province\": \"Mendoza\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33f4\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad del Museo Social Argentino\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33f5\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Misiones\",\n        \"state-province\": \"Misiones\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33f7\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Catamarca\",\n        \"state-province\": \"Catamarca\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33f9\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Córdoba\",\n        \"state-province\": \"Córdoba\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33fd\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Cuyo\",\n        \"state-province\": \"Mendoza\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a33ff\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Entre Ríos\",\n        \"state-province\": \"Entre Ríos\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3401\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Formosa\",\n        \"state-province\": \"Formosa\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3403\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de General Sarmiento\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3405\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad de Bologna - Representación en Buenos Aires\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3407\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional del Centro de la Provincia de Buenos Aires\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3409\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad de Morón\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a340b\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Notarial Argentina\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a340e\",\n        \"country\": \"Argentina\",\n        \"name\": \"Instituto Universitario de la Policia Federal\",\n        \"state-province\": null\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a340f\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Jujuy\",\n        \"state-province\": \"Jujuy\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3412\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de Lanus\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3414\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de La Rioja\",\n        \"state-province\": \"La Rioja\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3415\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional de La Matanza\",\n        \"state-province\": \"Buenos Aires\"\n    },\n    {\n        \"_id\": \"6346b467d65689687c2a3417\",\n        \"country\": \"Argentina\",\n        \"name\": \"Universidad Nacional del Litoral\",\n        \"state-province\": null\n    }\n]"
+				}
+			]
+		}
+	]
+}
