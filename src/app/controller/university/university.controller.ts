@@ -15,6 +15,19 @@ class UniversityController {
     }
   }
 
+  async findAllUniversities(req: Request, res : Response) { 
+    try{
+      const country = req.query?.country || null;
+      const page = Number(req.query?.page) || 0;
+      const result = await universityService.findUniversities(country,page);
+      return res.status(HttpStatus.OK).json(result);
+    } catch (error : any) {
+      return res
+        .status(error?.status || HttpStatus.BAD_REQUEST)
+        .json({ error_message: error?.message || HttpMessage.BAD_REQUEST});
+    }
+  }
+
   async findById(req: Request, res : Response) { 
     try {
       const id = req.params.id;

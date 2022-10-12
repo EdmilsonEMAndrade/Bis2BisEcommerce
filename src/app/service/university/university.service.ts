@@ -1,7 +1,7 @@
 import axios from 'axios';
 import HttpMessage from '../../enum/HttpMessage.enum';
 import HttpStatus from '../../enum/HttpStatus.enum';
-import { createdUniversity } from '../../interface/university.interface';
+import { createdUniversity, findAllUniversity } from '../../interface/university.interface';
 import universityRepositoryMongo from '../../repository/university/university.repository.mongo';
 
 class UniversityService{
@@ -9,7 +9,7 @@ class UniversityService{
     async insertData(){
         try{
             const countries = [
-                "argentina", "brasil", "chile", "colombia", "paraguai", "peru", "suriname", "uruguay"
+                "argentina", "brazil", "chile", "colombia", "paraguai", "peru", "suriname", "uruguay"
             ]
             await countries.forEach(async (country) => {
                 const { data } = await axios.get<createdUniversity[]>(`http://universities.hipolabs.com/search?country=${country}`);
@@ -27,10 +27,22 @@ class UniversityService{
         }       
     }
 
+    async findUniversities(country:any, page: number){
+        const universities =  await universityRepositoryMongo.findUniversities(country, page);
+        const result: findAllUniversity[] = [];
+        universities.forEach(university => {
+            result.push({
+                _id: university._id,
+                country: university.country,
+                name: university.name,
+                "state-province": university['state-province']
+            });
+        });
+        return result;
+    }
+
     async findById(id:string){
-        const university = await universityRepositoryMongo.findUniversityById(id);
-        console.log(university);
-        return university
+        return await universityRepositoryMongo.findUniversityById(id);
     }
 
 }
