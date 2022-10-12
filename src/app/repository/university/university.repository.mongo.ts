@@ -3,7 +3,7 @@ import HttpMessage from "../../enum/HttpMessage.enum";
 import HttpStatus from "../../enum/HttpStatus.enum";
 import { createdUniversity, IUniversity } from "../../interface/university.interface";
 import University from "../../schema/university/university.schema";
-import { findOne, findOneAndUpdate } from "../mongo/mongo.repository";
+import { findOneAndUpdate } from "../mongo/mongo.repository";
 import UniversityRepository from "./university.repository.interface";
 
 class UniversityRepositoryMongo implements UniversityRepository{
@@ -43,7 +43,7 @@ class UniversityRepositoryMongo implements UniversityRepository{
         }catch(error: any){
             throw {status: error?.status || HttpStatus.INTERNAL_SERVER_ERROR, message : error.message || HttpMessage.INTERNAL_SERVER_ERROR};
         }
-        
+
     }
 
 }
